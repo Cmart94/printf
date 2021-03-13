@@ -2,5 +2,5 @@
 Printf source code development for Holberton School project
 
 
-Juan Camilo Cadavid Velazqiez - @Juansu01
+Juan Camilo Cadavid Velasquez - @Juansu01
 Cristian Martinez Pino - @Cmart93
