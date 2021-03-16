@@ -1,10 +1,22 @@
 #include "holberton.h"
 
+/**
+ * _putchar - writes the character c to stdout
+ * @c: The character to print
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
+ */
+int _putchar(char c)
+{
+	return (write(1, &c, 1));
+}
 
 /**
- * @brief 
- * 
- * @return int 
+ * _print_nill
+ * @brief
+ *
+ * @return int
  */
 
 int _print_nill(void)
@@ -29,7 +41,7 @@ int _print_nill(void)
 int _print_c(va_list argumentos)
 {
 	char c = va_arg(argumentos, int);
-	putchar(c);
+	_putchar(c);
 	return (1);
 }
 
@@ -49,7 +61,7 @@ int _print_s(va_list argumentos)
 		c = "(nil)";  
 	for (len = 0; c[len] != '\0'; len++)
 	{
-		putchar(c[len]);
+		_putchar(c[len]);
 	}
 	return (len);
 }
@@ -63,7 +75,15 @@ int _print_s(va_list argumentos)
 
 int _print_percent(va_list argumentos)
 {
-	putchar('%');
+	int len;
+	char c = va_list(argumentos, char);
+
+	if (c == NULL)
+	{
+		len = _print_nill();
+		return (len);
+	}
+	_putchar(c);
 	return (1);
 }
 
@@ -79,14 +99,14 @@ int _print_d(va_list argumentos)
 	int n = va_arg(argumentos, int), reversed = 0, len = 0;  
 	char lastDigit;
 
-	if (n == NULL)
+	if (n ==\0)
 	{
 		len = _print_nill();
 		return (len);
 	}
 	if (n < 0)
 	{
-		putchar('-');
+		_putchar('-');
 		len++;
 		lastDigit = (char)('0' - (n % 10));
 		n /= -10;
@@ -107,7 +127,7 @@ int _print_d(va_list argumentos)
 		len++;
 		reversed /= 10;
 	}
-	putchar(lastDigit);
+	_putchar(lastDigit);
 	return (len + 1);
 }
 
@@ -123,14 +143,14 @@ int _print_i(va_list argumentos)
 	int n = va_arg(argumentos, int), reversed = 0, len = 0;  
 	char lastDigit;
 
-	if (n == NULL)
+	if (n == 0)
 	{
 		len = _print_nill();
 		return (len);
 	}
 	if (n < 0)
 	{
-		putchar('-');
+		_putchar('-');
 		len++;
 		lastDigit = (char)('0' - (n % 10));
 		n /= -10;
@@ -151,7 +171,7 @@ int _print_i(va_list argumentos)
 		len++;
 		reversed /= 10;
 	}
-	putchar(lastDigit);
+	_putchar(lastDigit);
 	return (len + 1);
 }
 
@@ -186,7 +206,7 @@ int _print_u(va_list argumentos)
 
 		while (div != 0)
 		{
-			len += putchar('0' + n / div);
+			len += _putchar('0' + n / div);
 			n %= div;
 			div /= 10;
 		}
