@@ -14,6 +14,7 @@ int _print_c(va_list arguments)
 
 	if (c == '\0')
 	{
+		_putchar(' ');
 		return (1);
 	}
 	_putchar(c);
@@ -69,6 +70,7 @@ int _print_d(va_list arguments)
 
 	if (n == '\0')
 	{
+		_putchar('0');
 		return (1);
 	}
 	if (n < 0)
@@ -112,6 +114,7 @@ int _print_i(va_list arguments)
 
 	if (n == '\0')
 	{
+		_putchar('0');
 		return (1);
 	}
 	if (n < 0)
