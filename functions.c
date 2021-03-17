@@ -1,64 +1,39 @@
 #include "holberton.h"
 
 /**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
-}
+* _print_c - prints characters.
+*
+* @arguments: arguments taken by the function.
+*
+* Return: Returns number of characters.
+*/
 
-/**
- * _print_nill
- * @brief
- *
- * @return int
- */
-
-int _print_nill(void)
+int _print_c(va_list arguments)
 {
-	char *s = "(nil)";
-	int len = 0;
-  
-	for (len = 0; s[len] != '\0'; len++)
+	char c = va_arg(arguments, int);
+
+	if (c == '\0')
 	{
-		_putchar(s[len]);
+		return (1);
 	}
-	return (len);
-}
-
-/**
- * @brief 
- * 
- * @param argumentos 
- * @return int 
- */
-
-int _print_c(va_list argumentos)
-{
-	char c = va_arg(argumentos, int);
 	_putchar(c);
 	return (1);
 }
 
 /**
- * @brief 
- * 
- * @return int 
- */
+* _print_s - prints strings.
+* @arguments: Arguments taken by the function.
+* Return: Returns number of characters printed.
+*/
 
 
-int _print_s(va_list argumentos)
+int _print_s(va_list arguments)
 {
 	int len;
-	char *c = va_arg(argumentos, char *);
-  
+	char *c = va_arg(arguments, char *);
+
 	if (c == NULL)
-		c = "(nil)";  
+	_putchar(' ');
 	for (len = 0; c[len] != '\0'; len++)
 	{
 		_putchar(c[len]);
@@ -67,39 +42,32 @@ int _print_s(va_list argumentos)
 }
 
 /**
- * @brief 
- * 
- * @param argumentos 
- * @return int 
- */
+* _print_percent - prints the percent sign.
+*
+* @arguments: argumentos.
+* Return: Returns number of characters.
+*/
 
-int _print_percent(va_list argumentos)
+int _print_percent(__attribute__((unused))va_list arguments)
 {
-	int len;
-	char c = va_list(argumentos, char);
 
-	if (c == NULL)
-	{
-		len = _print_nill();
-		return (len);
-	}
-	_putchar(c);
+	_putchar('%');
 	return (1);
 }
 
 /**
- * @brief 
- * 
- * @param argumentos 
- * @return int 
- */
+* _print_d - prints doubles.
+*
+* @arguments: arguments taken by the string.
+* Return: Returns number of characters.
+*/
 
-int _print_d(va_list argumentos)
+int _print_d(va_list arguments)
 {
-	int n = va_arg(argumentos, int), reversed = 0, len = 0;  
+	int n = va_arg(arguments, int), reversed = 0, len = 0;
 	char lastDigit;
 
-	if (n ==\0)
+	if (n == '\0')
 	{
 		len = _print_nill();
 		return (len);
@@ -132,15 +100,15 @@ int _print_d(va_list argumentos)
 }
 
 /**
- * @brief 
- * 
- * @param argumentos 
- * @return int 
- */
+* _print_i - prints integers.
+*
+* @arguments: arguments taken by the function.
+* Return: Returns number of characters.
+*/
 
-int _print_i(va_list argumentos)
+int _print_i(va_list arguments)
 {
-	int n = va_arg(argumentos, int), reversed = 0, len = 0;  
+	int n = va_arg(arguments, int), reversed = 0, len = 0;
 	char lastDigit;
 
 	if (n == 0)
@@ -173,47 +141,4 @@ int _print_i(va_list argumentos)
 	}
 	_putchar(lastDigit);
 	return (len + 1);
-}
-
-/**
- * @brief 
- * 
- * @param argumentos 
- * @return int 
- */
-int _print_u(va_list argumentos)
-{
-	unsigned int n;
-	int div;
-	int len;
-	int length;
-    
-	n  = va_arg(argumentos, unsigned int);
-	div = 1;
-	len = 0;
-
-	if (n < 0)
-	{
-		return (NULL);
-	}
-	else
-	{    
-
-		while (n / div > 9)
-		{
-			div *= 10;
-		}
-
-		while (div != 0)
-		{
-			len += _putchar('0' + n / div);
-			n %= div;
-			div /= 10;
-		}
-
-	}
-	length = (len / 48);
-    
-	return (length);
-
 }
