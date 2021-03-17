@@ -1,0 +1,31 @@
+.Dd 3/16/21
+.Dt _printf 1
+.Sh NAME
+.Nm _printf
+.Sh SYNOPSIS
+To be able to use the _printf function you need to include the "holberton.h" header in your files.
+
+.Sh DESCRIPTION
+The
+.Nm
+works just like the printf function. Our function will output text and numbers according to the formats that you give to it. Our function returns the amount of characters printed.
+.
+.Pp
+The following lists shows the formats supported by our function.
+.Bl -tag -width -indent
+.It %c
+Prints a single character.
+.It %s
+Prints a string.
+.It %d
+Prints a double.
+.It %i
+Prints an integer.
+.It %%
+Prints a string.
+
+.Sh RETURN VALUE
+Our function returns the amount of printed characters.
+.Pp
+.Sh AUTHORS
+Cristian Pino and Juan Camilo Cadavid.
