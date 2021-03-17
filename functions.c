@@ -33,7 +33,7 @@ int _print_s(va_list arguments)
 	char *c = va_arg(arguments, char *);
 
 	if (c == NULL)
-	_putchar(' ');
+		c = "(null)";
 	for (len = 0; c[len] != '\0'; len++)
 	{
 		_putchar(c[len]);
@@ -56,9 +56,9 @@ int _print_percent(__attribute__((unused))va_list arguments)
 }
 
 /**
-* _print_d - prints doubles.
+* _print_d - prints a integer base 10.
 *
-* @arguments: arguments taken by the string.
+* @arguments: input arguments with the number.
 * Return: Returns number of characters.
 */
 
@@ -69,8 +69,7 @@ int _print_d(va_list arguments)
 
 	if (n == '\0')
 	{
-		len = _print_nill();
-		return (len);
+		return (1);
 	}
 	if (n < 0)
 	{
@@ -102,7 +101,7 @@ int _print_d(va_list arguments)
 /**
 * _print_i - prints integers.
 *
-* @arguments: arguments taken by the function.
+* @arguments: argument with the int to be printed.
 * Return: Returns number of characters.
 */
 
@@ -111,10 +110,9 @@ int _print_i(va_list arguments)
 	int n = va_arg(arguments, int), reversed = 0, len = 0;
 	char lastDigit;
 
-	if (n == 0)
+	if (n == '\0')
 	{
-		len = _print_nill();
-		return (len);
+		return (1);
 	}
 	if (n < 0)
 	{
