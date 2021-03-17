@@ -25,5 +25,6 @@ int _print_percent(va_list argumentos);
 int _putchar(char c);
 int _print_d(va_list argumentos);
 int _print_i(va_list argumentos);
+int _print_b(va_list argument);
 
 #endif /* HOLBERTON_H_ */

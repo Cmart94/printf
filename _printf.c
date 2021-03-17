@@ -9,7 +9,8 @@ int _printf(const char *format, ...)
 {
 	int i = 0, j = 0, sum = 0;
 	_spfc aux[] = { {"c", _print_c}, {"s", _print_s}, {"%", _print_percent},
-			{"d", _print_d}, {"i", _print_i}, {NULL, NULL} };
+			{"d", _print_d}, {"i", _print_i}, {"b", _print_b},
+			{NULL, NULL} };
 	va_list arguments;
 
 	va_start(arguments, format);
