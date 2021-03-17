@@ -10,7 +10,7 @@ int _print_b(va_list argument)
 	int binary[32], len = 0, j;
 	int n = va_arg(argument, int);
 
-	if (n == '\0')
+	if (n == '\0' || n < 0)
 	{
 		_putchar(' ');
 		return (1);
